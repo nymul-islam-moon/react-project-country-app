@@ -39,8 +39,8 @@ const App = () => {
     const handleRemoveCountry = ( name ) => {
         const filter = filteredCountries.filter( (country) => country.name.common !== name );
 
-        setFilteredCountries((filter))
-;    }
+        setFilteredCountries((filter));
+    }
 
     const handleSearch = ( searchValue ) => {
         let value = searchValue.toLowerCase();

@@ -4,7 +4,7 @@ const FetchData = ( url ) => {
     const [ isLoading, setIsLoading ] = useState( true );
     const [ error, setError ] = useState( null );
     const [ data, setData ] = useState([]);
-    const [ filteredData, setFilteredData ] = useState( data );
+
 
     const fetchData = async ( url ) => {
         setIsLoading( true );
