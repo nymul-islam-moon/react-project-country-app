@@ -1,6 +1,17 @@
-import React, {useEffect, useState} from "react";
+/**
+ * Third Party Section
+ */
+import React, { useState, useEffect } from 'react';
+/**
+ * Component Section
+ */
+import Countries from "./components/Countries";
+import './App.css';
+import Search from "./components/Search";
 
-const FetchData = ( url ) => {
+const url = "https://restcountries.com/v3.1/all";
+
+const CountryApp = () => {
     const [ isLoading, setIsLoading ] = useState( true );
     const [ error, setError ] = useState( null );
     const [ countries, setCountries ] = useState([]);
@@ -38,7 +49,16 @@ const FetchData = ( url ) => {
         });
         setFilteredCountries(newCountries);
     }
-    return isLoading, error, data;
-}
 
-export default FetchData;
+    return (
+        <>
+            <h1>Country App</h1>
+            <Search  onSearch={handleSearch} />
+            { isLoading && <h2>Loading ...</h2> }
+            { error && <h2> { error.message } </h2> }
+            { countries && <Countries countries={ filteredCountries } onRemoveCountry={handleRemoveCountry} /> }
+        </>
+    );
+};
+
+export default CountryApp;
